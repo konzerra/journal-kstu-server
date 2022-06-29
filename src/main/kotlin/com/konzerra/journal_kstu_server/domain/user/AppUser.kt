@@ -8,7 +8,7 @@ import javax.persistence.*
 @Entity
 class AppUser(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long? = null,
     var name:String,
     @Column(unique = true)

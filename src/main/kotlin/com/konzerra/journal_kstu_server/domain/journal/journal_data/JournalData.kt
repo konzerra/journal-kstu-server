@@ -6,7 +6,7 @@ import javax.persistence.*
 @Entity
 class JournalData(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long? = null,
     var lang:String,
     var name:String = "no translation",

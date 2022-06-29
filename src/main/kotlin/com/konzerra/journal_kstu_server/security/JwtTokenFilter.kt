@@ -1,6 +1,6 @@
-package com.konzerra.journal_kstu_server.configuration.security
+package com.konzerra.journal_kstu_server.security
 
-import com.konzerra.journal_kstu_server.configuration.security.util.JwtUtil
+import com.konzerra.journal_kstu_server.security.util.JwtUtil
 import com.konzerra.journal_kstu_server.domain.user.port.out.UserOutPortGetDetails
 import io.jsonwebtoken.ExpiredJwtException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

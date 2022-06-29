@@ -3,6 +3,8 @@ package com.konzerra.journal_kstu_server.configuration.security
 
 import com.konzerra.journal_kstu_server.ApiPath
 import com.konzerra.journal_kstu_server.domain.user.port.out.UserOutPortGetDetails
+import com.konzerra.journal_kstu_server.security.JwtAuthenticationEntryPoint
+import com.konzerra.journal_kstu_server.security.JwtTokenFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager

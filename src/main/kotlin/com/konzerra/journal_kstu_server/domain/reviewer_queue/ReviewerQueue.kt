@@ -13,14 +13,14 @@ import javax.persistence.OneToOne
 @Entity
 class ReviewerQueue(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long? = null,
 
     @OneToOne
     var category:Category,
 
     @OneToMany
-    var queue: MutableList<Reviewer> = mutableListOf()
+    var list: MutableList<Reviewer> = mutableListOf()
 ) : EntityI {
 
 }

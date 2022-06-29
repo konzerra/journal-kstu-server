@@ -1,4 +1,4 @@
-package com.konzerra.journal_kstu_server.configuration.security
+package com.konzerra.journal_kstu_server.security
 
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.web.AuthenticationEntryPoint

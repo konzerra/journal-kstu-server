@@ -7,7 +7,7 @@ import javax.persistence.*
 @Entity
 class Role(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long? = null,
     @Column(unique = true)
     var name:String,

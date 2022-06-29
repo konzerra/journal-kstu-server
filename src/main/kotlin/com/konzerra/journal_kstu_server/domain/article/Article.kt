@@ -12,7 +12,7 @@ import javax.persistence.*
 @Entity
 class Article(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long? = null,
 
     var status: String,

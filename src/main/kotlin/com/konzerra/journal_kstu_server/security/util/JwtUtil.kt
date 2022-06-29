@@ -1,4 +1,4 @@
-package com.konzerra.journal_kstu_server.configuration.security.util
+package com.konzerra.journal_kstu_server.security.util
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts

@@ -2,7 +2,7 @@ package com.konzerra.journal_kstu_server.domain.jwt.usecase.impl
 
 
 import com.konzerra.journal_kstu_server.annotation.UseCase
-import com.konzerra.journal_kstu_server.configuration.security.util.JwtUtil
+import com.konzerra.journal_kstu_server.security.util.JwtUtil
 import com.konzerra.journal_kstu_server.domain.jwt.dto.JwtRequestDto
 import com.konzerra.journal_kstu_server.domain.jwt.dto.JwtResponseDto
 import com.konzerra.journal_kstu_server.domain.jwt.usecase.JwtUseCaseGenerateJwtToken

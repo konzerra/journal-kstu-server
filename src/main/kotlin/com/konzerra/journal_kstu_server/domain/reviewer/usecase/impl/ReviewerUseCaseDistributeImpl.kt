@@ -46,9 +46,9 @@ class ReviewerUseCaseDistributeImpl(
 
             var reviewer: Reviewer? = null
             try {
-                reviewer = reviewerQueue.queue.removeFirst()
+                reviewer = reviewerQueue.list.removeFirst()
                 article.reviewer = reviewer
-                reviewerQueue.queue.add(reviewer)
+                reviewerQueue.list.add(reviewer)
 
                 reviewerQueueOutPortSave.execute(reviewerQueue)
                 articleOutPortSave.execute(article)

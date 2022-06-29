@@ -9,7 +9,7 @@ import javax.persistence.*
 @Entity
 class Reviewer(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long? = null,
 
     @OneToOne(fetch = FetchType.LAZY)

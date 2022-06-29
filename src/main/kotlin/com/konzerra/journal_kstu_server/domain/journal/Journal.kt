@@ -8,7 +8,7 @@ import javax.persistence.*
 @Entity
 class Journal(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long? = null,
     @OneToMany(cascade = [CascadeType.ALL])
     var dataList:List<JournalData> = emptyList(),

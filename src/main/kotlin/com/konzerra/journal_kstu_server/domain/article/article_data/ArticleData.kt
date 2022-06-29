@@ -6,23 +6,23 @@ import javax.persistence.*
 @Entity
 class ArticleData(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
     var lang: String,
 
 
-    @Column(length=4096)
+    @Column(columnDefinition = "TEXT")
     var name: String = "no translation",
 
-    @Column(length=8192)
+    @Column(columnDefinition = "TEXT")
     var authors: String = "no translation",
 
 
-    @Column(length=8192)
+    @Column(columnDefinition = "TEXT")
     var annotation: String = "no translation",
 
-    @Column(length=4096)
+    @Column(columnDefinition = "TEXT")
     var tags: String = "no translation",
 ) {
 }
