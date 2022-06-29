@@ -11,17 +11,18 @@ class ArticleData(
 
     var lang: String,
 
-    @Type( type = "org.hibernate.type.TextType")
+
+    @Column(length=4096)
     var name: String = "no translation",
 
-    @Type( type = "org.hibernate.type.TextType")
+    @Column(length=8192)
     var authors: String = "no translation",
 
 
-    @Type( type = "org.hibernate.type.TextType")
+    @Column(length=8192)
     var annotation: String = "no translation",
 
-    @Type( type = "org.hibernate.type.TextType")
+    @Column(length=4096)
     var tags: String = "no translation",
 ) {
 }

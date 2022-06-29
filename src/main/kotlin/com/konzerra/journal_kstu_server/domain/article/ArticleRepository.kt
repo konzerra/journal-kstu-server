@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ArticleRepository:JpaRepository<Article,Long>{
-
     fun findArticlesByJournalIdIs(journal_id: Long, pageable: Pageable):Page<Article>
 }

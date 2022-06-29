@@ -13,7 +13,7 @@ class CategoryData(
 
     var name:String = "no translation",
 
-    @Type( type = "org.hibernate.type.TextType")
+    @Column(length=4096)
     var overview : String = "no translation",
 
 ) {
