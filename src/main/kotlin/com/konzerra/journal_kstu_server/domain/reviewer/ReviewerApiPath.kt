@@ -8,6 +8,7 @@ class ReviewerApiPath {
         private const val publicPath = "${ApiPath.publicPath}/reviewer"
 
         const val distribute = "$protectedPath/distribute"
+        const val findArticles = "$protectedPath/articles/{id}"
 
         const val findById = "$publicPath/{id}"
         const val findByIdFull = "$protectedPath/full/{id}"

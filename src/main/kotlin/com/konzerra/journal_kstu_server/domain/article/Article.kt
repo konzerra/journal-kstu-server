@@ -44,10 +44,7 @@ class Article(
     var pdfDoc: Doc? = null,
 
     @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    var verificationPDFDoc: Doc? = null,
-
-    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    var reviewerBlank: Doc? = null,
+    var reviewerBlankDoc: Doc? = null,
 
     var pagesInJournal:String? = null,
 

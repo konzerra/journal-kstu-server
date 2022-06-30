@@ -5,5 +5,9 @@ enum class ArticleStatus {
     Registered,
     InModeration,
     Published,
-    Rejected,
+    RejectedByModerator,
+    AcceptedByModerator,
+    SkippedByModerator,
+
+    RejectedByAdmin,
 }

@@ -25,7 +25,7 @@ class ArticleFullResponseDto(
 
     var wordDocId: Long? = null,
 
-    var verificationDocId: Long? = null,
+    var reviewerBlankDoc: Long? = null,
 ) : ResponseDtoI{
 
     @Component
@@ -42,7 +42,7 @@ class ArticleFullResponseDto(
                 dataList = entity.dataList,
                 pdfDocId = entity.pdfDoc?.id,
                 wordDocId = entity.wordDoc?.id,
-                verificationDocId = entity.verificationPDFDoc?.id
+                reviewerBlankDoc = entity.reviewerBlankDoc?.id
             )
         }
 

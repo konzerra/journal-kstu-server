@@ -1,4 +1,4 @@
-package com.konzerra.journal_kstu_server.domain.article.usecase.impl
+package com.konzerra.journal_kstu_server.domain.article.usecase.update_impl
 
 import com.konzerra.journal_kstu_server._generic.port.out.crud.OutPortFindById
 import com.konzerra.journal_kstu_server._generic.port.out.crud.OutPortSave
@@ -47,6 +47,7 @@ class ArticleUseCaseUpdateByAdminImpl(
         updateDto.journalId?.let {
             article.journal = journalOutPortFindById.execute(it)
         }
+        println("categoryId: "+updateDto.categoryId)
         updateDto.categoryId?.let {
             article.category = categoryOutPortFindById.execute(it)
         }
@@ -60,6 +61,7 @@ class ArticleUseCaseUpdateByAdminImpl(
         pdfDoc?.let{
             article.pdfDoc = it
         }
+        article.dataList = updateDto.dataList
         outPortSave.execute(article)
     }
 }

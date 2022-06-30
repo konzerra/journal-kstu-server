@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 
 @Repository
-@Transactional
 interface JournalRepository : JpaRepository<Journal,Long>{
-
+    fun findAllByStatusEquals(status: String):List<Journal>
 }
