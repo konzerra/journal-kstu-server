@@ -18,7 +18,7 @@ class ReviewerInPortFindArticlesImpl(
     @GetMapping(ReviewerApiPath.findArticles)
     override fun execute(
         @PathVariable id: Long,
-        @RequestHeader lang: String):Any {
+        @RequestHeader("Accept-Language") lang: String):Any {
         return ResponseEntity(
             reviewerUseCaseFindArticles.execute(id,lang),
             HttpStatus.OK

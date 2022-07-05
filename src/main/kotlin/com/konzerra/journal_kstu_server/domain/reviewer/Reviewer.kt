@@ -3,6 +3,7 @@ package com.konzerra.journal_kstu_server.domain.reviewer
 import com.konzerra.journal_kstu_server._generic.data.EntityI
 import com.konzerra.journal_kstu_server.domain.article.Article
 import com.konzerra.journal_kstu_server.domain.category.Category
+import com.konzerra.journal_kstu_server.domain.reviewer_queue.ReviewerQueue
 import com.konzerra.journal_kstu_server.domain.user.AppUser
 import javax.persistence.*
 
@@ -20,9 +21,11 @@ class Reviewer(
     @OneToOne
     var category:Category,
 
-    @OneToMany
-    var articles:MutableSet<Article> = mutableSetOf()
+    @OneToMany(fetch = FetchType.LAZY)
+    var articles:MutableSet<Article> = mutableSetOf(),
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    var queue: ReviewerQueue
 
 ) : EntityI{
 }

@@ -7,6 +7,7 @@ import com.konzerra.journal_kstu_server.domain.reviewer.usecase.ReviewerUseCaseD
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 
 
 @InPort
@@ -15,8 +16,8 @@ class ReviewerInPortDistributeImpl (
 ) : ReviewerInPortDistribute{
 
     @GetMapping(ReviewerApiPath.distribute)
-    override fun execute(journalId: Long): Any {
-     return ResponseEntity<String>(reviewerUseCaseDistribute.execute(journalId),HttpStatus.OK)
+    override fun execute(@PathVariable id: Long): Any {
+     return ResponseEntity<String>(reviewerUseCaseDistribute.execute(id),HttpStatus.OK)
     }
 
 }

@@ -16,7 +16,7 @@ class JournalApiPath {
         const val findAllArticlesPaginated = "$publicPath/{id}/articles/{pageNumber}"
         const val findById = "$publicPath/{id}"
         const val findByIdFull = "$protectedPath/full/{id}"
-        const val findAllPaginated = "$publicPath/all/{pageNumber}"
+        const val findAllPaginated = "$publicPath/all/{pageNumber}/{pageSize}"
 
         const val save = protectedPath
         const val update = protectedPath

@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestHeader
+import org.springframework.web.bind.annotation.RequestParam
 
 @InPort
 class JwtInPortGenerateJwtTokenImpl(
@@ -21,7 +23,7 @@ class JwtInPortGenerateJwtTokenImpl(
     @PostMapping(JwtApiPath.generateJwtTokenPath)
     override fun generateToken(
         @RequestBody jwtRequestDto: JwtRequestDto,
-        @PathVariable lang:String
+        @RequestHeader("Accept-Language") lang:String
     ): ResponseEntity<JwtResponseDto> {
         return ResponseEntity(jwtUseCaseGenerateJwtToken.execute(jwtRequestDto,lang),HttpStatus.OK)
     }

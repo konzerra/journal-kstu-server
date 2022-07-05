@@ -19,6 +19,7 @@ class ReviewerInPortFindAllPaginatedImpl(
     @GetMapping(ReviewerApiPath.findAllPaginated)
     override fun execute(
         @PathVariable pageNumber: Int,
+        @PathVariable pageSize: Int,
         @RequestHeader("Accept-Language") lang: String
     ): Any {
 

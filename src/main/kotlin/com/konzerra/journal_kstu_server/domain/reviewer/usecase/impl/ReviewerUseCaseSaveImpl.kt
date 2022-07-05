@@ -7,6 +7,7 @@ import com.konzerra.journal_kstu_server.annotation.UseCase
 import com.konzerra.journal_kstu_server.domain.category.Category
 import com.konzerra.journal_kstu_server.domain.reviewer.Reviewer
 import com.konzerra.journal_kstu_server.domain.reviewer.dto.ReviewerSaveDto
+import com.konzerra.journal_kstu_server.domain.reviewer_queue.port.out.ReviewerQueueOutPortFindByCategory
 import com.konzerra.journal_kstu_server.domain.role.port.out.RoleOutPortFindByName
 import com.konzerra.journal_kstu_server.domain.user.AppUser
 import com.konzerra.journal_kstu_server.domain.user.UserRoles
@@ -16,6 +17,7 @@ import com.konzerra.journal_kstu_server.exception.ResourceNotFoundException
 @UseCase
 class ReviewerUseCaseSaveImpl(
     private val reviewerOutPortSave: OutPortSave<Reviewer>,
+    private val reviewerQueueOutPortFindByCategory: ReviewerQueueOutPortFindByCategory,
     private val userOutPortFindByEmail: UserOutPortFindByEmail,
     private val appUserOutPortSave: OutPortSave<AppUser>,
     private val roleOutPortFindByName: RoleOutPortFindByName,
@@ -39,15 +41,13 @@ class ReviewerUseCaseSaveImpl(
             user.roles.add(roleOutPortFindByName.findByName(
                 UserRoles.Reviewer.toString()
             ))
-            println(user.id)
-            println(categoryOutPortFindById.execute(saveDto.categoryId).id)
             appUserOutPortSave.execute(user)
             reviewerOutPortSave.execute(
-
                 Reviewer(
                     appUser = user,
                     category = categoryOutPortFindById.execute(saveDto.categoryId),
-                    active = true
+                    active = true,
+                    queue = reviewerQueueOutPortFindByCategory.execute(saveDto.categoryId)
                 )
             )
         }

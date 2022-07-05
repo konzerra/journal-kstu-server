@@ -15,6 +15,7 @@ import com.konzerra.journal_kstu_server.domain.reviewer_queue.port.out.ReviewerQ
 class ReviewerUseCaseDistributeImpl(
     private val journalOutPortFindById: OutPortFindById<Journal,Long>,
     private val articleOutPortSave: OutPortSave<Article>,
+    private val reviewerOutPortSave: OutPortSave<Reviewer>,
     private val reviewerQueueOutPortFindByCategory: ReviewerQueueOutPortFindByCategory,
     private val reviewerQueueOutPortSave: OutPortSave<ReviewerQueue>,
 ) : ReviewerUseCaseDistribute {
@@ -43,15 +44,16 @@ class ReviewerUseCaseDistributeImpl(
         article.category?.id?.let { categoryId ->
             val reviewerQueue = reviewerQueueOutPortFindByCategory.execute(categoryId)
 
-
             var reviewer: Reviewer? = null
             try {
                 reviewer = reviewerQueue.list.removeFirst()
                 article.reviewer = reviewer
+                reviewer.articles.add(article)
                 reviewerQueue.list.add(reviewer)
 
                 reviewerQueueOutPortSave.execute(reviewerQueue)
                 articleOutPortSave.execute(article)
+                reviewerOutPortSave.execute(reviewer)
 
             } catch (e: Exception) {
                 return "\nСтатья с id: ${article.id} не может " +

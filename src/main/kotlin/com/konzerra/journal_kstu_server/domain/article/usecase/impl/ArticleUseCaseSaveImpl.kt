@@ -21,10 +21,9 @@ class ArticleUseCaseSaveImpl(
     private val journalOutPortFindById: OutPortFindById<Journal,Long>
 ) : ArticleUseCaseSave{
     override fun execute(saveDto: ArticleSaveDto, file: MultipartFile) {
-        val fileName:String = file.originalFilename ?: "file"
         val doc = Doc(
-            name = fileName,
-            mimeType = file.contentType ?: "unknown",
+            name = file.name,
+            mimeType = file.contentType ?: "application/octet-stream",
             content = file.bytes
         )
         val article = Article(

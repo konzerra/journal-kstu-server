@@ -11,7 +11,7 @@ class CategoryApiPath {
         private const val protectedPath = "${ApiPath.protectedPath}/category"
         private const val publicPath = "${ApiPath.publicPath}/category"
 
-        const val findAllPaginated = "$protectedPath/all/{pageNumber}"
+        const val findAllPaginated = "$protectedPath/all/{pageNumber}/{pageSize}"
         const val findByIdPathFull = "$protectedPath/full/{id}"
         const val findByIdPath = "$publicPath/{id}"
         const val findAllPath = "$publicPath/all"

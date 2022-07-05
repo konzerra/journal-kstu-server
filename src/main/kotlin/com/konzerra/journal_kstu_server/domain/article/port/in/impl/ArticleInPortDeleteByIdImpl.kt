@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
 
 @InPort
 class  ArticleInPortDeleteByIdImpl(
     override val useCaseDeleteById: UseCaseDeleteById<Article, Long>
 ) : InPortDeleteByIdAbstractImpl<Article, Long>()
 {
+    @PreAuthorize("hasAnyRole('Admin','User')")
     @DeleteMapping(ArticleApiPath.deleteByIdPath)
     override fun execute(@PathVariable id: Long): ResponseEntity<*> {
         useCaseDeleteById.execute(id)

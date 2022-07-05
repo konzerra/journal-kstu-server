@@ -7,12 +7,12 @@ class ReviewerApiPath {
         private const val protectedPath = "${ApiPath.protectedPath}/reviewer"
         private const val publicPath = "${ApiPath.publicPath}/reviewer"
 
-        const val distribute = "$protectedPath/distribute"
+        const val distribute = "$protectedPath/distribute/journal/{id}"
         const val findArticles = "$protectedPath/articles/{id}"
 
         const val findById = "$publicPath/{id}"
         const val findByIdFull = "$protectedPath/full/{id}"
-        const val findAllPaginated = "$protectedPath/all/{pageNumber}"
+        const val findAllPaginated = "$protectedPath/all/{pageNumber}/{pageSize}"
 
         const val save = protectedPath
         const val update = protectedPath

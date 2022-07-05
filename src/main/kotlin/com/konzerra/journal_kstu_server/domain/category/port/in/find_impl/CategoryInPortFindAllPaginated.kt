@@ -19,10 +19,11 @@ class CategoryInPortFindAllPaginated(
     @GetMapping(CategoryApiPath.findAllPaginated)
     override fun execute(
         @PathVariable pageNumber: Int,
+        @PathVariable pageSize:Int,
         @RequestHeader("Accept-Language") lang:String
     ): Any {
         return ResponseEntity(
-            useCaseFindAllPaginated.execute(pageNumber,10,lang),
+            useCaseFindAllPaginated.execute(pageNumber,pageSize,lang),
             HttpStatus.OK
         )
     }
