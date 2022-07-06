@@ -6,7 +6,7 @@ import com.konzerra.journal_kstu_server.annotation.UseCase
 import com.konzerra.journal_kstu_server.domain.markdown.Markdown
 
 @UseCase
-class MarkdownUseCaseDeleteById(
+class MarkdownUseCaseDeleteByIdImpl(
     override val outPortDeleteById: OutPortDeleteById<Markdown, Long>
 ) : UseCaseDeleteByIdAbstractImpl<Markdown,Long>(){
 }
