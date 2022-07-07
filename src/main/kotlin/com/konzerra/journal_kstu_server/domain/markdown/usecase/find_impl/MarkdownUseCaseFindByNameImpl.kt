@@ -1,4 +1,4 @@
-package com.konzerra.journal_kstu_server.domain.markdown.usecase.impl
+package com.konzerra.journal_kstu_server.domain.markdown.usecase.find_impl
 
 import com.konzerra.journal_kstu_server.annotation.UseCase
 import com.konzerra.journal_kstu_server.domain.markdown.dto.MarkdownResponseDto

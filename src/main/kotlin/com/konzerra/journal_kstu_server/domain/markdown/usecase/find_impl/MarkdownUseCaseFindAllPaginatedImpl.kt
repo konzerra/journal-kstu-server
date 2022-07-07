@@ -1,4 +1,4 @@
-package com.konzerra.journal_kstu_server.domain.markdown.usecase.impl
+package com.konzerra.journal_kstu_server.domain.markdown.usecase.find_impl
 
 import com.konzerra.journal_kstu_server._generic.port.out.crud.OutPortFindAllPaginated
 import com.konzerra.journal_kstu_server._generic.usecase.abstract_find_impl.UseCaseFindAllPaginatedAbstractImpl

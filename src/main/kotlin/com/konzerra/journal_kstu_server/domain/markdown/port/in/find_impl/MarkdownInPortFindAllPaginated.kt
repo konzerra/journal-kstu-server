@@ -1,4 +1,4 @@
-package com.konzerra.journal_kstu_server.domain.markdown.port.`in`.impl
+package com.konzerra.journal_kstu_server.domain.markdown.port.`in`.find_impl
 
 import com.konzerra.journal_kstu_server._generic.port.`in`.crud.InPortFindAllPaginated
 import com.konzerra.journal_kstu_server._generic.usecase.UseCaseFindAllPaginated
