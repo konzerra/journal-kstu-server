@@ -1,4 +1,4 @@
-package com.konzerra.journal_kstu_server.domain.jwt.port.`in`
+package com.konzerra.journal_kstu_server.domain.jwt
 
 import com.konzerra.journal_kstu_server.ApiPath
 

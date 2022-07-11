@@ -20,7 +20,7 @@ class MarkdownInPortFindAllPaginated(
     override fun execute(
         @PathVariable pageNumber: Int,
         @PathVariable pageSize: Int,
-        @RequestHeader lang: String
+        @RequestHeader("Accept-Language") lang: String
     ): Any {
         return ResponseEntity(
             markdownUseCaseFindAllPaginated.execute(pageNumber,pageSize, lang),

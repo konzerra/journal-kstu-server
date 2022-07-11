@@ -17,7 +17,7 @@ class MarkdownInPortFindByNameImpl(
     @GetMapping(MarkdownApi.findByName)
     override fun execute(
         @PathVariable name: String,
-        @RequestHeader lang: String
+        @RequestHeader("Accept-Language") lang: String
     ): Any {
         return ResponseEntity(
             markdownUseCaseFindByName.execute(name,lang),

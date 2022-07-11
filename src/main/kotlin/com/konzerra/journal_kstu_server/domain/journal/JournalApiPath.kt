@@ -13,7 +13,7 @@ class JournalApiPath {
         const val makeReport = "${protectedPath}/{id}"
 
         const val findAllByStatus = "$protectedPath/all-by-status/{status}"
-        const val findAllArticlesPaginated = "$publicPath/{id}/articles/{pageNumber}"
+        const val findAllArticlesPaginated = "$publicPath/{id}/articles/{pageNumber}/{pageSize}"
         const val findById = "$publicPath/{id}"
         const val findByIdFull = "$protectedPath/full/{id}"
         const val findAllPaginated = "$publicPath/all/{pageNumber}/{pageSize}"

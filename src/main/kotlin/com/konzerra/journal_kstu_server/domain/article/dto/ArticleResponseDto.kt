@@ -13,7 +13,9 @@ class ArticleResponseDto(
     var annotation: String,
     var tags:String,
     var status:String,
-    var journal:JournalResponseDto
+    var journal:JournalResponseDto,
+    var category: String,
+    var reviewer: Boolean,
 ) : ResponseDtoI{
     @Component
     companion object: Mapper<Article,ArticleResponseDto>{
@@ -26,7 +28,9 @@ class ArticleResponseDto(
                 annotation = articleData.annotation,
                 tags = articleData.tags,
                 status = entity.status,
-                journal = JournalResponseDto.toResponseDto(entity.journal)
+                journal = JournalResponseDto.toResponseDto(entity.journal),
+                category = entity.category?.dataByLanguage(lang)?.name ?: "Нет",
+                reviewer = entity.reviewer != null
             )
         }
     }

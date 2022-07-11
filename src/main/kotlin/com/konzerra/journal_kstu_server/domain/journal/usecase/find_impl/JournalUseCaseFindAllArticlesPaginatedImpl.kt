@@ -10,13 +10,13 @@ import org.springframework.data.domain.Page
 class JournalUseCaseFindAllArticlesPaginatedImpl(
     private val journalOutPortFindAllArticlesPaginated: JournalOutPortFindAllArticlesPaginated
 ) : JournalUseCaseFindAllArticlesPaginated {
-    override fun execute(journalId: Long,pageNumber: Int, pageSize: Int): Page<ArticleResponseDto> {
+    override fun execute(journalId: Long,pageNumber: Int, pageSize: Int, lang:String): Page<ArticleResponseDto> {
         return journalOutPortFindAllArticlesPaginated.execute(
             journalId,
             pageNumber,
-            pageSize
+            pageSize,
         ).map {
-            ArticleResponseDto.toResponseDto(it,"Ru")
+            ArticleResponseDto.toResponseDto(it,lang)
         }
     }
 }
