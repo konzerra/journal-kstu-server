@@ -1,6 +1,7 @@
 package com.konzerra.journal_kstu_server.domain.reviewer.port.`in`.impl
 
 import com.konzerra.journal_kstu_server.annotation.InPort
+import com.konzerra.journal_kstu_server.common.ResponseMessage
 import com.konzerra.journal_kstu_server.domain.reviewer.ReviewerApiPath
 import com.konzerra.journal_kstu_server.domain.reviewer.port.`in`.ReviewerInPortDistribute
 import com.konzerra.journal_kstu_server.domain.reviewer.usecase.ReviewerUseCaseDistribute
@@ -17,7 +18,7 @@ class ReviewerInPortDistributeImpl (
 
     @GetMapping(ReviewerApiPath.distribute)
     override fun execute(@PathVariable id: Long): Any {
-     return ResponseEntity<String>(reviewerUseCaseDistribute.execute(id),HttpStatus.OK)
+     return ResponseEntity(ResponseMessage(reviewerUseCaseDistribute.execute(id)),HttpStatus.OK)
     }
 
 }

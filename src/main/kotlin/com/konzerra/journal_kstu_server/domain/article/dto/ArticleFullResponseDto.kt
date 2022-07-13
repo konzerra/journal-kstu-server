@@ -4,6 +4,8 @@ import com.konzerra.journal_kstu_server._generic.data.ResponseDtoI
 import com.konzerra.journal_kstu_server._generic.util.Mapper
 import com.konzerra.journal_kstu_server.domain.article.Article
 import com.konzerra.journal_kstu_server.domain.article.article_data.ArticleData
+import com.konzerra.journal_kstu_server.domain.category.dto.CategoryResponseDto
+import com.konzerra.journal_kstu_server.domain.journal.dto.JournalResponseDto
 import org.springframework.stereotype.Component
 
 class ArticleFullResponseDto(
@@ -11,9 +13,11 @@ class ArticleFullResponseDto(
 
     var status: String,
 
-    var journalId: Long? = null,
+    var journal: JournalResponseDto,
 
-    var categoryId: Long? = null,
+    var category: CategoryResponseDto?,
+
+    var reviewer: Boolean,
 
     var pagesInJournal: String? = null,
 
@@ -25,7 +29,8 @@ class ArticleFullResponseDto(
 
     var wordDocId: Long? = null,
 
-    var reviewerBlankDoc: Long? = null,
+    var reviewerBlankDocId: Long? = null,
+
 ) : ResponseDtoI{
 
     @Component
@@ -35,14 +40,15 @@ class ArticleFullResponseDto(
             return ArticleFullResponseDto(
                 id= entity.id,
                 status = entity.status,
-                journalId = entity.journal.id,
-                categoryId = entity.category?.id,
+                journal = JournalResponseDto.toResponseDto(entity.journal),
+                category = entity.category?.let { CategoryResponseDto.toResponseDto(it) },
+                reviewer = entity.reviewer != null,
                 pagesInJournal = entity.pagesInJournal,
                 antiplagiat = entity.antiplagiat,
                 dataList = entity.dataList,
                 pdfDocId = entity.pdfDoc?.id,
                 wordDocId = entity.wordDoc?.id,
-                reviewerBlankDoc = entity.reviewerBlankDoc?.id
+                reviewerBlankDocId = entity.reviewerBlankDoc?.id,
             )
         }
 

@@ -3,6 +3,7 @@ package com.konzerra.journal_kstu_server.domain.article.dto
 import com.konzerra.journal_kstu_server._generic.data.ResponseDtoI
 import com.konzerra.journal_kstu_server._generic.util.Mapper
 import com.konzerra.journal_kstu_server.domain.article.Article
+import com.konzerra.journal_kstu_server.domain.category.dto.CategoryResponseDto
 import com.konzerra.journal_kstu_server.domain.journal.dto.JournalResponseDto
 import org.springframework.stereotype.Component
 
@@ -14,7 +15,7 @@ class ArticleResponseDto(
     var tags:String,
     var status:String,
     var journal:JournalResponseDto,
-    var category: String,
+    var category: CategoryResponseDto?,
     var reviewer: Boolean,
 ) : ResponseDtoI{
     @Component
@@ -29,7 +30,7 @@ class ArticleResponseDto(
                 tags = articleData.tags,
                 status = entity.status,
                 journal = JournalResponseDto.toResponseDto(entity.journal),
-                category = entity.category?.dataByLanguage(lang)?.name ?: "Нет",
+                category = entity.category?.let {CategoryResponseDto.toResponseDto(it) },
                 reviewer = entity.reviewer != null
             )
         }

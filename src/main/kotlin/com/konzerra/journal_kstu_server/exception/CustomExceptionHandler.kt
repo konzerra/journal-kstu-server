@@ -6,11 +6,15 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 
 @ControllerAdvice
-class ResourceNotFoundExceptionHandler {
+class CustomExceptionHandler {
 
     @ExceptionHandler
-    fun handle(exception: ResourceNotFoundException):Any{
+    fun handleResourceNotFound(exception: ResourceNotFoundException):Any{
         return ResponseEntity(ExceptionResponse(exception.message()),HttpStatus.NOT_FOUND)
+    }
+    @ExceptionHandler
+    fun handleBadRequest(exception: BadRequestException):Any{
+        return ResponseEntity(ExceptionResponse(exception.message()),HttpStatus.BAD_REQUEST)
     }
 
 }
